@@ -1,0 +1,17 @@
+{"properties": [
+  {
+    "name": "azure.text-analysis.uri",
+    "type": "java.lang.String",
+    "description": "URI endpoint for text analysis - should be the full URI, e.g. https://westeurope.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment"
+  },
+  {
+    "name": "azure.text-analysis.language",
+    "type": "java.lang.String",
+    "description": "Language to assume for sentiment, e.g. en"
+  },
+  {
+    "name": "azure.text-analysis.subscription-key",
+    "type": "java.lang.String",
+    "description": "API subscription key obtained from the Azure portal"
+  }
+]}

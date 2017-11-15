@@ -1,0 +1,16 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+  application:
+    name: ANALYSIS-DEMO
+security:
+  basic:
+    enabled: false
+server:
+  port: 8080
+azure:
+  text-analysis:
+    uri: https://westeurope.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment
+    language: en 
+    subscription-key: replace-me-in-env 
