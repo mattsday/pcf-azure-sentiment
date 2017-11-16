@@ -13,5 +13,10 @@
     "name": "azure.text-analysis.subscription-key",
     "type": "java.lang.String",
     "description": "API subscription key obtained from the Azure portal"
+  },
+  {
+    "name": "reviews.seeds",
+    "type": "java.util.List",
+    "description": "A description for 'reviews.seeds'"
   }
 ]}

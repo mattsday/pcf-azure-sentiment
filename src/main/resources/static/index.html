@@ -1,0 +1,71 @@
+
+<html>
+<head>
+<script type="text/javascript"
+	src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript"
+	src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+<script type="text/javascript">
+	google.charts.load('current', {
+		callback : loadCharts,
+		packages : [ 'corechart', 'table' ]
+	});
+
+	function drawChart(jsonData) {
+		var data = new google.visualization.DataTable(jsonData);
+		var options = {
+			title : 'Sentiment over time',
+			curveType : 'function',
+			legend : {
+				position : 'bottom'
+			},
+			vAxis : {
+				minValue : 0,
+				maxValue : 100,
+				format : '#\'%\''
+			}
+		};
+
+		var chart = new google.visualization.LineChart(document
+				.getElementById('curve_chart'));
+		chart.draw(data, options);
+	}
+
+	function drawTable(jsonData) {
+		var data = new google.visualization.DataTable(jsonData);
+
+		var table = new google.visualization.Table(document
+				.getElementById('table_div'));
+
+		table.draw(data, {
+			showRowNumber : true,
+			width : '100%',
+			height : '100%'
+		});
+
+	}
+
+	function loadCharts() {
+		$.when($.ajax({
+			url : "/v1/chart/sentiment",
+			dataType : "json",
+			async : true
+		})).done(function(jsonData) {
+			drawChart(jsonData);
+		});
+		$.when($.ajax({
+			url : "/v1/chart/messages",
+			dataType : "json",
+			async : true
+		})).done(function(jsonData) {
+			drawTable(jsonData);
+		});
+	}
+</script>
+</head>
+<body>
+	<a href="#" onclick="javascript:loadCharts()">refresh</a>
+	<div id="curve_chart" style="width: 900px; height: 500px"></div>
+	<div id="table_div"></div>
+</body>
+</html>

@@ -2,8 +2,14 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
+  datasource:
+    url: jdbc:h2:~/azure-db
+    initialize: false
   application:
     name: ANALYSIS-DEMO
+  jackson:
+    serialization:
+      ORDER_MAP_ENTRIES_BY_KEYS: true
 security:
   basic:
     enabled: false
@@ -13,4 +19,16 @@ azure:
   text-analysis:
     uri: https://westeurope.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment
     language: en 
-    subscription-key: replace-me-in-env 
+    subscription-key: replace-me-in-env
+reviews:
+  seeds:
+    - Awful service, I wasn't happy at all
+    - Fantastic! I definitely look forward to coming back next year and I might even bring my girlfriend instead of my wife
+    - It was OK, nothing special to write home about
+    - The service was bad. The staff was bad. They should all feel bad. I want my money back!
+    - Great! I really can't express how fantastic it all was!
+    - I'd love to come back here one day and really get in to it a lot more
+    - There isn't a single thing I can say that's bad about this place - I loved it!
+    - It was OK
+    - I was prepared to hate this place. The good news is, I was prepared.
+    
