@@ -61,10 +61,41 @@
 			drawTable(jsonData);
 		});
 	}
+
+	$(document).ready(function() {
+		startup()
+	});
+
+	function startup() {
+		$("#messageForm").on("submit", function(e) {
+			e.preventDefault();
+			$.ajax({
+				type : "POST",
+				url : "/v1/message",
+				data : {
+					name : $("#name").val(),
+					message : $("#message").val()
+				},
+				success : function() {
+					loadCharts();
+				},
+				dataType : "json"
+			});
+		});
+	}
+
+	//function
 </script>
 </head>
 <body>
-	<a href="#" onclick="javascript:loadCharts()">refresh</a>
+	<form action="#" method="post" id="messageForm">
+		<label for="name">Name: </label><input type="text" id="name" /> <label
+			for="message">Message: </label><input type="text" id="message" /> <input
+			type="submit" value="Go!" />
+	</form>
+	<p>
+		<a href="#" onclick="javascript:loadCharts()">refresh</a>
+	</p>
 	<div id="curve_chart" style="width: 900px; height: 500px"></div>
 	<div id="table_div"></div>
 </body>
