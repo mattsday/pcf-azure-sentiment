@@ -1,0 +1,8 @@
+---
+applications:
+- name: sentiment-bot
+  memory: 1024M
+  instances: 1
+  path: target/analysis-demo-0.0.1-SNAPSHOT.jar
+  services: [ mssql ]
+  random-route: true
