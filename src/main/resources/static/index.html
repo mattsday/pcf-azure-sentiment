@@ -1,10 +1,9 @@
-
+<!DOCTYPE html>
 <html>
 <head>
-<script type="text/javascript"
-	src="https://www.gstatic.com/charts/loader.js"></script>
-<script type="text/javascript"
-	src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
 <script type="text/javascript">
 	google.charts.load('current', {
 		callback : loadCharts,
@@ -88,10 +87,12 @@
 </script>
 </head>
 <body>
+	<h1>Customer Sentiment</h1>
 	<form action="#" method="post" id="messageForm">
-		<label for="name">Name: </label><input type="text" id="name" /> <label
-			for="message">Message: </label><input type="text" id="message" /> <input
-			type="submit" value="Go!" />
+		<p>Send a message:</p>
+		<p>
+			<label for="name">Your Name: </label><input type="text" id="name" /> <label for="message">Message: </label><input type="text" id="message" /> <input type="submit" value="Go!" />
+		</p>
 	</form>
 	<p>
 		<a href="#" onclick="javascript:loadCharts()">refresh</a>
